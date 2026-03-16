@@ -1,0 +1,183 @@
+/* RESET */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Background */
+body {
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: "Georgia", serif;
+
+    position: relative;
+}
+
+/* Blur Overlay */
+body::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+
+    backdrop-filter: blur(18px);
+    background: rgba(0, 0, 0, 0.35);
+}
+
+/* Wrapper Fade Animation */
+.wrapper {
+    animation: fadeIn 1.4s ease;
+    backdrop-filter: blur(10px);
+}
+
+.card {
+    position: relative;
+
+    width: 90%;
+    max-width: 460px;
+    padding: 28px 22px;
+
+    border-radius: 22px;
+    border: 1px solid rgba(212, 164, 74, .6);
+
+    background: radial-gradient(circle at center, #3a190c, #2b1208);
+
+    box-shadow:
+        0 30px 60px rgba(0, 0, 0, .45),
+        0 0 30px rgba(212, 164, 74, .08);
+
+    text-align: center;
+}
+
+/* Logo */
+.logo {
+    width: 120px;
+    margin-bottom: 16px;
+}
+
+/* Coming Soon */
+.coming {
+    letter-spacing: 6px;
+    font-size: 14px;
+    color: #d4a44a;
+    margin-bottom: 20px;
+
+    opacity: 0;
+    animation: fadeUp 1s ease forwards;
+    animation-delay: .2s;
+}
+
+/* Title */
+.title {
+    font-size: 34px;
+    margin-bottom: 12px;
+}
+
+.title .light {
+    color: #f3e7d3;
+}
+
+.title .gold {
+    color: #d4a44a;
+    text-shadow: 0 0 12px rgba(212, 164, 74, 0.25);
+}
+
+/* Subtitle */
+.subtitle {
+    font-size: 14px;
+    margin-bottom: 18px;
+    color: #fff;
+}
+
+/* Divider */
+.divider {
+    margin-bottom: 18px;
+}
+
+.divider::before,
+.divider::after {
+    content: "";
+    flex: 1;
+    height: 1px;
+    background: #b8892d;
+}
+
+.star {
+    color: #d4a44a;
+    font-size: 18px;
+    animation: glow 2s infinite alternate;
+}
+
+/* Pills */
+.pills {
+    display: flex;
+    justify-content: center;
+    gap: 14px;
+
+    opacity: 0;
+    animation: fadeUp 1s ease forwards;
+    animation-delay: 1s;
+}
+
+.pill {
+    border: 1px solid #b8892d;
+    padding: 11px 20px;
+    border-radius: 22px;
+    color: #d4a44a;
+    font-size: 7px;
+    cursor: pointer;
+    transition: .3s;
+}
+
+.pill:hover {
+    background: #d4a44a;
+    color: #2b1208;
+    transform: translateY(-3px);
+}
+
+/* Animations */
+@keyframes fadeUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0
+    }
+
+    to {
+        opacity: 1
+    }
+}
+
+@keyframes zoomIn {
+    from {
+        transform: scale(.95);
+        opacity: 0;
+    }
+
+    to {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
+@keyframes glow {
+    from {
+        text-shadow: 0 0 5px #d4a44a
+    }
+
+    to {
+        text-shadow: 0 0 18px #d4a44a
+    }
+}
